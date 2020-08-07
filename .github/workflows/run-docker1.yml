@@ -28,8 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     container: squidfunk/mkdocs-material
     steps:
+      - uses: actions/checkout@v2
       - run: |
-          echo "START DISPLAYING README.MD"
-          cat README.MD
-          echo "END DISPLAYING README.MD"
+          # echo "START DISPLAYING README.MD"
+          # cat README.MD
+          # echo "END DISPLAYING README.MD"
+          echo "/github/home"
+          ls -la  "/github/home"
+          echo "/github/workflow"
+          ls -la  "/github/workflow"
+          echo "/github/workspace"
+          ls -la  "/github/workspace"
         name: Run in container2
