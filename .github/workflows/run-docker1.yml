@@ -81,21 +81,37 @@ jobs:
   #         echo "echo $GITHUB_WORKSPACE"
   #         echo "$GITHUB_WORKSPACE"
 
+
+  # docker-example7:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: squidfunk/mkdocs-material
+  #     # ALWAYS MOUNTS EMPTY DIRECTORY
+  #     options: -v /__w/github-actions-test/github-actions-test:/mounted/github-actions-test:ro
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Run in container2
+  #       run: |
+  #         echo "$GITHUB_WORKSPACE"
+  #         echo "########################"
+  #         ls -la /mounted/github-actions-test
+  #         echo "########################"
+  #         cat ${GITHUB_WORKSPACE}/README.md
+  #         echo "########################"
+
+
   docker-example7:
     runs-on: ubuntu-latest
     container:
       image: squidfunk/mkdocs-material
-      options: -v /__w/github-actions-test/github-actions-test:/mounted/github-actions-test:ro
     steps:
       - uses: actions/checkout@v2
       - name: Run in container2
         run: |
-          echo "$GITHUB_WORKSPACE"
-          echo "########################"
-          ls -la /mounted/github-actions-test
-          echo "########################"
-          cat ${GITHUB_WORKSPACE}/README.md
-          echo "########################"
+          cd "${GITHUB_WORKSPACE}"
+          cp "${GITHUB_WORKSPACE}"/lightgallery-markdown/lightgallery.py /usr/local/lib/python3.8/lightgallery.py
+          mkdocs build --config-file ./mkdocs-public.yml
+
 
   # docker-example8:
   #   runs-on: ubuntu-latest

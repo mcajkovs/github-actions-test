@@ -1,0 +1,92 @@
+site_name: Excalibur Public Docs
+site_description: Official Excalibur Documentation
+site_url: https://docs.xclbr.com/
+
+repo_name: excalibur-enterprise/docs
+repo_url: https://github.com/excalibur-enterprise/docs
+edit_uri: https://github.com/excalibur-enterprise/docs/edit/master/docs/public
+
+# Google Analytics
+google_analytics:
+  - UA-174553902-1
+  - auto
+
+# Copyright
+copyright: Copyright &copy; 2020 <a href="http://xclbr.com">Excalibur</a>
+
+docs_dir: 'docs/public'
+
+theme: 
+  name: material
+  language: 'en'
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
+  logo: images/logo.svg
+  features:
+    - tabs
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: indigo
+  custom_dir: 'theme'
+
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/excalibur-enterprise/docs
+
+markdown_extensions:
+  - lightgallery
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+      separator: '-'
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # - pymdownx.highlight:
+  #     linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      lang:
+        - en
+        
+nav:
+    - Home: 'README.md'
+
+    - Version specific docs:
+      - 'V3': 'v3/README.md'
