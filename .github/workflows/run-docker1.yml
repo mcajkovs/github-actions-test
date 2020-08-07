@@ -15,7 +15,7 @@ jobs:
           echo It runs directly on the virtual machine.
         name: Run on VM
 
-  container1:
+  docker-example1:
     runs-on: ubuntu-latest
     container: node:10.16-jessie
     steps:
@@ -24,7 +24,7 @@ jobs:
           echo It runs in the container instead of the VM.
         name: Run in container1
 
-  container2:
+  docker-example2:
     runs-on: ubuntu-latest
     container: squidfunk/mkdocs-material
     steps:
@@ -39,4 +39,34 @@ jobs:
           ls -la  "/github/workflow"
           echo "/github/workspace"
           ls -la  "/github/workspace"
+        name: Run in container2
+
+  docker-example3:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Run box version
+        uses: docker://foundeo/minibox:latest
+        with:
+          entrypoint: /opt/box/box
+          args: version
+
+  docker-example4:
+    name: DefaultLabelsActions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@1.0.0
+      - uses: lannonbr/issue-label-manager-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker-example5:
+    runs-on: ubuntu-latest
+    container: squidfunk/mkdocs-material
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "start find"
+          find / -iname "*readme.md*"
+          echo "stop find"
         name: Run in container2
