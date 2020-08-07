@@ -70,3 +70,19 @@ jobs:
           find / -iname "*readme.md*"
           echo "stop find"
         name: Run in container2
+
+  docker-example6:
+    runs-on: ubuntu-latest
+    container: squidfunk/mkdocs-material
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "start cat /__w/github-actions-test/github-actions-test/README.md"
+          cat /__w/github-actions-test/github-actions-test/README.md
+          echo "stop cat /__w/github-actions-test/github-actions-test/README.md"
+
+          echo "start cat /__w/_actions/actions/checkout/v2/README.md"
+          cat /__w/_actions/actions/checkout/v2/README.md
+          echo "stop cat /__w/_actions/actions/checkout/v2/README.md"
+        name: Run in container2
+     
