@@ -1,4 +1,4 @@
-name: run-test2
+name: run-docker2.yml
 
 on:
   push:

@@ -29,5 +29,7 @@ jobs:
     container: squidfunk/mkdocs-material
     steps:
       - run: |
+          echo "START DISPLAYING README.MD"
           cat README.MD
+          echo "END DISPLAYING README.MD"
         name: Run in container2
