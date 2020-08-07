@@ -76,6 +76,16 @@ jobs:
     container: squidfunk/mkdocs-material
     steps:
       - uses: actions/checkout@v2
+      - name: Run in container2
+        run: |
+          echo "echo $GITHUB_WORKSPACE"
+          echo "$GITHUB_WORKSPACE"
+
+  docker-example7:
+    runs-on: ubuntu-latest
+    container: squidfunk/mkdocs-material
+    steps:
+      - uses: actions/checkout@v2
       - run: |
           echo "start cat /__w/github-actions-test/github-actions-test/README.md"
           cat /__w/github-actions-test/github-actions-test/README.md
