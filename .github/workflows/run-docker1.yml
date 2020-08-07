@@ -71,29 +71,31 @@ jobs:
   #         echo "stop find"
   #       name: Run in container2
 
-  docker-example6:
-    runs-on: ubuntu-latest
-    container: squidfunk/mkdocs-material
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run in container2
-        run: |
-          echo "echo $GITHUB_WORKSPACE"
-          echo "$GITHUB_WORKSPACE"
+  # docker-example6:
+  #   runs-on: ubuntu-latest
+  #   container: squidfunk/mkdocs-material
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Run in container2
+  #       run: |
+  #         echo "echo $GITHUB_WORKSPACE"
+  #         echo "$GITHUB_WORKSPACE"
 
   docker-example7:
     runs-on: ubuntu-latest
     container:
       image: squidfunk/mkdocs-material
-      options: -v /__w/github-actions-test/github-actions-test/github-actions-test:/mounted/github-actions-test:rw
+      options: -v /__w/github-actions-test/github-actions-test:/mounted/github-actions-test:ro
     steps:
       - uses: actions/checkout@v2
       - name: Run in container2
         run: |
-          echo "echo $GITHUB_WORKSPACE"
           echo "$GITHUB_WORKSPACE"
-          echo "ls -la /mounted/github-actions-test"
+          echo "########################"
           ls -la /mounted/github-actions-test
+          echo "########################"
+          cat ${GITHUB_WORKSPACE}/README.md
+          echo "########################"
 
   # docker-example8:
   #   runs-on: ubuntu-latest
