@@ -1,4 +1,4 @@
-name: run-test1
+name: run-docker1.yml
 
 on:
   push:
@@ -14,19 +14,20 @@ jobs:
           echo This job does not specify a container.
           echo It runs directly on the virtual machine.
         name: Run on VM
-  container:
+
+  container1:
     runs-on: ubuntu-latest
     container: node:10.16-jessie
     steps:
       - run: |
           echo This job does specify a container.
           echo It runs in the container instead of the VM.
-        name: Run in container
+        name: Run in container1
+
   container2:
     runs-on: ubuntu-latest
     container: squidfunk/mkdocs-material
     steps:
       - run: |
-          echo This job does specify a container.
-          echo It runs in the container instead of the VM.
-        name: Run in container
+          cat README.MD
+        name: Run in container2
