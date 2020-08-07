@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: squidfunk/mkdocs-material
-      options: -v /__w/github-actions-test/github-actions-test:/mounted/github-actions-test:rw
+      options: -v /__w/github-actions-test/github-actions-test/github-actions-test:/mounted/github-actions-test:rw
     steps:
       - uses: actions/checkout@v2
       - name: Run in container2
