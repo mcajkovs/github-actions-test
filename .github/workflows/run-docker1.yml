@@ -84,5 +84,7 @@ jobs:
           echo "start cat /__w/_actions/actions/checkout/v2/README.md"
           cat /__w/_actions/actions/checkout/v2/README.md
           echo "stop cat /__w/_actions/actions/checkout/v2/README.md"
+
+          echo "echo $GITHUB_WORKSPACE"
+          echo "$GITHUB_WORKSPACE"
         name: Run in container2
-     
